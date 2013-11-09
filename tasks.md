@@ -19,6 +19,11 @@ you can pass a python module on the cmd line.
 https://raw.github.com/ansible/ansible/devel/plugins/inventory/ec2.py
 http://www.ansibleworks.com/docs/intro_dynamic_inventory.html#example-aws-ec2-external-inventory-script
 
+
+here's some examples.
+https://github.com/ansible/ansible-examples
+
+
 ## bring up a ruby app server
 
 

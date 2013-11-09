@@ -1,0 +1,10 @@
+---
+# this will drive the entire configuration
+
+- hosts: all
+  roles:
+    - common
+
+- hosts: appservers
+  roles:
+    - appserver
