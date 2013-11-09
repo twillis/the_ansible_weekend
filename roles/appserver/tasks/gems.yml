@@ -1,0 +1,6 @@
+---
+    - name: core gems
+      gem: name=$item state=present
+      with_items:
+        - bundler
+        - rake
