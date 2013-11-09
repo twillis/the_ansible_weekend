@@ -12,3 +12,7 @@
 - hosts: dbservers
   roles:
     - dbserver
+
+- hosts: solrservers
+  roles:
+    - solrserver

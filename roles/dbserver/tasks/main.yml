@@ -1,5 +1,5 @@
 ---
-    - name: rbenv | install build depends
+    - name: database | install build depends
       apt: pkg=$item state=latest install_recommends=no
       with_items:
         - postgresql-${pg_version}

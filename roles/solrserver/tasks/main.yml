@@ -1,0 +1,11 @@
+---
+    - name: solr| install build depends
+      apt: pkg=$item state=latest install_recommends=no
+      with_items:
+        - openjdk-6-jdk
+        - solr-tomcat
+
+
+    - name: solr| start on boot
+      command: update-rc.d tomcat6 defaults
+      sudo: true
