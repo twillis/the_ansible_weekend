@@ -26,9 +26,11 @@ https://github.com/ansible/ansible-examples
 
 ## bring up a ruby app server
 
-
+done
 
 ## bring up a postgres db server
+
+
 
 ## bring up a solr instance
    - config
@@ -42,3 +44,7 @@ https://github.com/ansible/ansible-examples
 ## bring up unicorn
 ## bring up nginx
 ## bonus: nagios
+
+## issues
+
+   why is it looking for stuff unser roles at places like templates/templates ?

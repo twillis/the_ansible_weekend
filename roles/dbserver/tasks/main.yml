@@ -1,0 +1,34 @@
+---
+    - name: rbenv | install build depends
+      apt: pkg=$item state=latest install_recommends=no
+      with_items:
+        - postgresql-${pg_version}
+        - libpq-dev
+        - postgresql-client-${pg_version}
+        - python-psycopg2
+
+    - name: Listen on public interface
+      lineinfile: >
+        dest=/etc/postgresql/${pg_version}/main/postgresql.conf
+        regexp="^listen_addresses"
+        insertafter="^#listen_addresses"
+        line="listen_addresses = '*'"
+      notify: restart postgresql
+
+    - name: allow access to appservers
+      lineinfile: >
+        dest=/etc/postgresql/${pg_version}/main/pg_hba.conf
+        regexp="${db_name}.*${item}"
+        line="host    ${db_name}             all             {{item}}/32       trust"
+      with_items: groups.get('appservers')
+      notify: restart postgresql
+
+    - name: create pg db
+      postgresql_db: name=${db_name}
+      sudo: true
+      sudo_user: postgres
+
+    - name: create pg user
+      postgresql_user: user=${pg_user} password=${pg_password} db=${db_name}
+      sudo: true
+      sudo_user: postgres

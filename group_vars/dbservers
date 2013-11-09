@@ -1,0 +1,4 @@
+pg_version: 9.1
+db_name: viper
+pg_user: viper
+pg_password: viper

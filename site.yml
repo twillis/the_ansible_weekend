@@ -8,3 +8,7 @@
 - hosts: appservers
   roles:
     - appserver
+
+- hosts: dbservers
+  roles:
+    - dbserver
